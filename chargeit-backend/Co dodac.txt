@@ -1,0 +1,8 @@
+Co dodac
+- te rzeczy co gemini wypisalo
+- filtrowanie I w tym opcja najblizszych punktow po wpisaniu miasta - wpisje i focus mapy przechodzi na ten rejon i pokazuje punkty najblizsze inne opcje zwiazane z wtyczkami
+I cenami I dostepnoscia 
+- mozliwosc usuwania punktu w profile uzytkownika I jakies inne rzeczy jeszcze w tym profilu
+- kolorowe dedykowane ikony markero
+- kolor mapy
+- zeby znaczniki nie uciekaly
