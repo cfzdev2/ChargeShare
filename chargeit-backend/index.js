@@ -42,6 +42,7 @@ const createTables = async () => {
         phone_number VARCHAR(20),
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         );
+        ALTER TABLE users ADD COLUMN IF NOT EXISTS email TEXT;
         `;
 
         //Tabela punktow ladowania (zaktualizowana o kolumnę status)
