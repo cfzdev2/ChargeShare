@@ -634,7 +634,10 @@ const handleUpdateStation = async (e, id) => {
       {token && !isSidebarOpen && (
         <button 
           onClick={() => setIsSettingsOpen(true)} 
-          style={isMobile ? { ...S.fab, bottom: '125px', right: '10px' } : S.fab}
+          style={isMobile 
+            ? { ...S.fab, bottom: '125px', right: '10px' } 
+            : { ...S.fab, right: '20px', left: 'auto' } // Gwarantuje przyklejenie do prawej na PC
+          }
         >
           <span>⚙</span> Moje stacje <strong style={{ marginLeft: '6px', background: '#0a1320', color: '#ffffff', padding: '2px 6px', borderRadius: '10px', fontSize: '11px' }}>{myStations.length}</strong>
         </button>
