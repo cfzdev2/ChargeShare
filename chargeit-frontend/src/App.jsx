@@ -512,7 +512,7 @@ const handleUpdateStation = async (e, id) => {
       }
       @media (max-width: 600px) {
         .leaflet-bottom.leaflet-left {
-          bottom: 70px !important; /* Zmniejszone ze 125px, żeby usiadło tuż nad paskiem */
+          bottom: 50px !important; /* Zmniejszone ze 125px, żeby usiadło tuż nad paskiem */
         }
       }
     `}</style>
