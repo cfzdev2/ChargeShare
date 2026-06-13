@@ -503,19 +503,19 @@ const handleUpdateStation = async (e, id) => {
     <>
       {/* Wstrzyknięcie animacji pulsowania markerów */}
       <style>{`
-        @keyframes markerPulse {
-          0% { transform: scale(1); opacity: 0.7; }
-          100% { transform: scale(3); opacity: 0; }
+      @keyframes markerPulse {
+        0% { transform: scale(1); opacity: 0.7; }
+        100% { transform: scale(3); opacity: 0; }
+      }
+      .leaflet-container {
+        background: #0d1b2a !important;
+      }
+      @media (max-width: 600px) {
+        .leaflet-bottom.leaflet-left {
+          bottom: 112px !important; /* Zmniejszone ze 125px, żeby usiadło tuż nad paskiem */
         }
-        .leaflet-container {
-          background: #0d1b2a !important;
-        }
-        @media (max-width: 600px) {
-          .leaflet-bottom.leaflet-left {
-            bottom: 125px !important; /* Dopasowane, by stać idealnie nad podniesionym paskiem */
-          }
-        }
-      `}</style>
+      }
+    `}</style>
 
       <MapContainer center={mapCenter} zoom={mapZoom} key="clean-map" zoomControl={false} style={{ width: '100%', height: '100%' }}>
         <ChangeView center={mapCenter} zoom={mapZoom} />
@@ -602,7 +602,7 @@ const handleUpdateStation = async (e, id) => {
           onClick={() => setIsSettingsOpen(true)} 
           style={isMobile ? { ...S.fab, bottom: '125px', right: '10px' } : S.fab}
         >
-          <span>⚙</span> Moje stacje <strong style={{ marginLeft: '6px', background: '#0a1320', padding: '2px 6px', borderRadius: '10px', fontSize: '11px' }}>{myStations.length}</strong>
+          <span>⚙</span> Moje stacje <strong style={{ marginLeft: '6px', background: '#0a1320', color: '#ffffff', padding: '2px 6px', borderRadius: '10px', fontSize: '11px' }}>{myStations.length}</strong>
         </button>
       )}
 
