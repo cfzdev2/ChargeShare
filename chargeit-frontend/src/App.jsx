@@ -415,7 +415,17 @@ const handleUpdateStation = async (e, id) => {
 
       {/* ── boczny panel dodawania (glass) ─────────────────── */}
       <aside style={isMobile 
-        ? { ...S.sidebar, width: '100%', right: isSidebarOpen ? 0 : -window.innerWidth, left: 0, borderRadius: '18px 18px 0 0' } 
+        ? { 
+            ...S.sidebar, 
+            width: '100%', 
+            left: 0, 
+            right: 0, 
+            top: 0, 
+            height: '100vh', 
+            borderRadius: '18px 18px 0 0',
+            transform: isSidebarOpen ? 'translateX(0)' : 'translateX(100%)',
+            transition: 'transform 0.3s ease-in-out'
+          } 
         : { ...S.sidebar, right: isSidebarOpen ? 18 : -440 }
       }>
         <div style={S.sidebarHead}>
