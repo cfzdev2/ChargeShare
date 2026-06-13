@@ -79,6 +79,7 @@ const createCustomIcon = (status) => {
 function MainMap() {
   // ── stany (bez zmian) ────────────────────────────────────────
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
   const [clickCoords, setClickCoords] = useState(null);
   const [formTitle, setFormTitle] = useState('');
   const [formDesc, setFormDesc] = useState('');
@@ -108,6 +109,12 @@ function MainMap() {
 
   const token = localStorage.getItem('token');
   const username = localStorage.getItem('username');
+
+  useEffect(() => {
+  const handleResize = () => setIsMobile(window.innerWidth <= 600);
+  window.addEventListener('resize', handleResize);
+  return () => window.removeEventListener('resize', handleResize);
+}, []);
 
   // ── handlery (bez zmian logicznych) ──────────────────────────
   const handleCitySearch = async (e) => {
@@ -268,7 +275,7 @@ const handleUpdateStation = async (e, id) => {
     <div style={S.scene}>
       {/* ── górny pływający navbar ─────────────────────────── */}
       <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-      <header style={S.topbar}>
+      <header style={isMobile ? { ...S.topbar, left: 10, right: 10, padding: '8px 10px' } : S.topbar}>
         <div style={S.brand}>
           <div style={S.brandMark}>
             <span style={S.brandBolt}>⚡</span>
@@ -323,7 +330,10 @@ const handleUpdateStation = async (e, id) => {
       </header>
 
       {/* ── pasek filtrów (rozwijany) ──────────────────────── */}
-      <div style={{ ...S.filterDock, ...(isFilterBarOpen ? S.filterDockOpen : S.filterDockClosed) }}>
+      <div style={isMobile 
+          ? { ...S.filterDock, top: 75, left: 10, right: 10, flexDirection: 'column', alignItems: 'stretch' } 
+          : { ...S.filterDock, ...(isFilterBarOpen ? S.filterDockOpen : S.filterDockClosed) }
+        }>
         <form onSubmit={handleCitySearch} style={S.searchWrap}>
           <span style={S.searchIcon}>⌕</span>
           <input
@@ -404,7 +414,10 @@ const handleUpdateStation = async (e, id) => {
       </div>
 
       {/* ── boczny panel dodawania (glass) ─────────────────── */}
-      <aside style={{ ...S.sidebar, right: isSidebarOpen ? 18 : -440 }}>
+      <aside style={isMobile 
+        ? { ...S.sidebar, width: '100%', right: isSidebarOpen ? 0 : -window.innerWidth, left: 0, borderRadius: '18px 18px 0 0' } 
+        : { ...S.sidebar, right: isSidebarOpen ? 18 : -440 }
+      }>
         <div style={S.sidebarHead}>
           <div>
             <div style={S.sidebarKicker}>Nowy punkt</div>
