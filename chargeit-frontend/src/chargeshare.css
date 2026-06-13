@@ -154,13 +154,57 @@ body { font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sa
     right: 0 !important;
     top: auto !important;
     bottom: 0 !important;
-    max-height: 88vh !important;
+    max-height: 70vh !important;
     height: auto !important;
     border-radius: 18px 18px 0 0 !important;
     padding: 14px !important;
     box-sizing: border-box !important;
   }
+    /* nagłówek sidebara */
+  aside[style*="width: 420px"] h2,
+  div[style*="width: 420px"] h2 { font-size: 15px !important; margin: 2px 0 0 !important; }
+  aside[style*="width: 420px"] [style*="letter-spacing: 1.2px"],
+  div[style*="width: 420px"] [style*="letter-spacing: 1.2px"] { font-size: 9px !important; }
 
+  /* coords pill */
+  aside[style*="width: 420px"] [style*="border-radius: 999px"][style*="rgba(45, 212, 168"] {
+    padding: 3px 8px !important; font-size: 10px !important; margin-bottom: 6px !important;
+  }
+
+  /* formularz — mniejsze przerwy */
+  aside[style*="width: 420px"] form,
+  div[style*="width: 420px"] form { gap: 8px !important; }
+
+  /* etykiety pól */
+  aside[style*="width: 420px"] label,
+  div[style*="width: 420px"] label { font-size: 9px !important; }
+
+  /* inputy/selecty/textarea */
+  aside[style*="width: 420px"] input,
+  aside[style*="width: 420px"] select,
+  aside[style*="width: 420px"] textarea,
+  div[style*="width: 420px"] input,
+  div[style*="width: 420px"] select,
+  div[style*="width: 420px"] textarea {
+    padding: 7px 10px !important;
+    font-size: 13px !important;
+    border-radius: 8px !important;
+  }
+  aside[style*="width: 420px"] textarea,
+  div[style*="width: 420px"] textarea { min-height: 48px !important; }
+
+  /* submit */
+  aside[style*="width: 420px"] button[type="submit"],
+  div[style*="width: 420px"] button[type="submit"] {
+    padding: 10px 14px !important; font-size: 13px !important; margin-top: 2px !important;
+  }
+
+  /* hint chowamy gdy sidebar otwarty — i tak jest „kliknij na mapie" zbędny */
+  aside[style*="width: 420px"] ~ div[style*="max-width: 280px"],
+  div[style*="width: 420px"][style*="z-index: 1100"] ~ div[style*="max-width: 280px"] {
+    display: none !important;
+  }
+}
   /* ===== STATS (lewy dół) ===== */
   div[style*="left: 16px"][style*="bottom: 24px"][style*="z-index: 998"] {
     left: 6px !important;
@@ -204,7 +248,7 @@ body { font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sa
   }
   .leaflet-control-attribution { font-size: 9px !important; }
   .cs-popup .leaflet-popup-content-wrapper { max-width: 84vw; }
-}
+
 
 /* bardzo wąskie ekrany */
 @media (max-width: 380px) {
