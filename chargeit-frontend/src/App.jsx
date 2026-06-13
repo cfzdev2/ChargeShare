@@ -333,7 +333,7 @@ const handleUpdateStation = async (e, id) => {
       <div style={isMobile 
         ? { 
             ...S.filterDock, 
-            top: 75, 
+            top: 145, 
             left: 10, 
             right: 10, 
             width: 'auto', 
