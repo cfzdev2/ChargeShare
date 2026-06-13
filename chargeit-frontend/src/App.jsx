@@ -331,9 +331,22 @@ const handleUpdateStation = async (e, id) => {
 
       {/* ── pasek filtrów (rozwijany) ──────────────────────── */}
       <div style={isMobile 
-          ? { ...S.filterDock, top: 75, left: 10, right: 10, flexDirection: 'column', alignItems: 'stretch' } 
-          : { ...S.filterDock, ...(isFilterBarOpen ? S.filterDockOpen : S.filterDockClosed) }
-        }>
+        ? { 
+            ...S.filterDock, 
+            top: 75, 
+            left: 10, 
+            right: 10, 
+            width: 'auto', 
+            flexDirection: 'column',
+            // Dynamiczne ukrywanie i pokazywanie:
+            transform: isFilterBarOpen ? 'translateY(0)' : 'translateY(-10px)',
+            opacity: isFilterBarOpen ? 1 : 0,
+            pointerEvents: isFilterBarOpen ? 'all' : 'none', 
+            transition: 'transform 0.2s ease-in-out, opacity 0.2s ease-in-out',
+            zIndex: 999 // Żeby filtry na pewno były nad mapą, ale pod topbarem jeśli trzeba
+          } 
+        : { ...S.filterDock, ...(isFilterBarOpen ? S.filterDockOpen : S.filterDockClosed) }
+      }>
         <form onSubmit={handleCitySearch} style={S.searchWrap}>
           <span style={S.searchIcon}>⌕</span>
           <input
